@@ -1,0 +1,113 @@
+.container {
+  width: 100%;
+  height: 4.5rem;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 20px var(--white);
+  border: 1px solid var(--white);
+}
+
+/* ========== App Logo ============== */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--white);
+}
+
+/* =============== navbar ============== */
+
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.navbar button {
+  color: var(--white);
+  margin: 0 2rem;
+  padding: 0.5rem 1rem;
+  background: none;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.navbar button::before,
+.navbar button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--white);
+  height: 2px;
+  width: 0%;
+}
+
+.navbar button::before {
+  top: 0;
+  left: 0;
+}
+
+.navbar button::after {
+  bottom: 0;
+  right: 0;
+}
+
+.navbar button:hover::before,
+.navbar button:hover::after {
+  animation: hover 0.7s both;
+}
+@keyframes hover {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ============ credit ================= */
+.part button {
+  position: relative;
+  border: 1px solid var(--white);
+  background: none;
+  color: var(--white);
+  padding: 0.3rem 0.7rem;
+}
+
+.part button::before {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 0%;
+  background-color: var(--white);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.part button:hover {
+  color: var(--black);
+}
+
+.part button:hover::before {
+  animation: credits 0.8s both;
+}
+
+@keyframes credits {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}

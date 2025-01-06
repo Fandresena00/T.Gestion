@@ -1,0 +1,45 @@
+.check_task {
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  text-align: start;
+  padding: 0.1rem 1rem 0.3rem 10%;
+  background-color: var(--black-transparent);
+  position: relative;
+}
+
+.check_task:hover .delete {
+  opacity: 1;
+}
+
+.check_task span {
+  font-size: 1rem;
+  margin: 0 2%;
+}
+
+.completed_color {
+  background-color: var(--green);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.delete {
+  position: absolute;
+  background: none;
+  border: none;
+  right: 0;
+  opacity: 0;
+  margin-right: 5%;
+}
+
+.delete:hover svg {
+  stroke: var(--red);
+}
+
+.delete svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--white);
+}

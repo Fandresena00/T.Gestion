@@ -1,0 +1,64 @@
+.container {
+  min-width: 18em;
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom left,
+    var(--secondary-color),
+    var(--third-color),
+    var(--fourth-color)
+  );
+  color: aliceblue;
+  text-align: center;
+}
+
+.team_name {
+  padding: 2rem 0;
+}
+
+.team_name svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--primary-color);
+}
+
+.team_name h2 {
+  font-size: 1.2rem;
+}
+
+.team_board h4 {
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  padding: 0.7rem 0;
+}
+
+.team_list {
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.team_list li {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.team_list li img {
+  width: 30px;
+  height: 30px;
+  margin: 0.5rem 1rem;
+  padding: 1px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+/* ================================ */
+.add {
+  margin: 0.5rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}

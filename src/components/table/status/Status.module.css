@@ -1,0 +1,69 @@
+.status {
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  margin: 0 0.3rem;
+  border: 1px solid var(--white);
+  min-width: 15rem;
+}
+
+.status div {
+  width: 100%;
+}
+
+.status div h4 {
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+/* ============= task container ============ */
+.container {
+  background-color: var(--white-transparent);
+  height: calc(100vh - 13.5rem);
+  position: relative;
+  overflow-y: auto;
+}
+
+.task_container {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  position: relative;
+  max-height: calc(100vh - 14.3rem);
+}
+.task_container.drag_over {
+  background-color: rgb(6, 18, 27);
+  border-radius: 4px;
+}
+
+/* ================ input button ============ */
+
+.input_button {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.3rem 0;
+  text-align: center;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.input_button::placeholder {
+  color: var(--white);
+}
+
+.input_button:focus::placeholder {
+  color: transparent;
+}
+
+.input_button:focus {
+  cursor: text;
+  border: 1px solid var(--white);
+  border-radius: 0px;
+  box-shadow: 0 0 10px var(--white);
+  padding: 0.45rem 0;
+}

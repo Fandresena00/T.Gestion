@@ -1,0 +1,70 @@
+:root {
+  --white: #f7f7f7;
+  --black: #1a1a1a;
+  --white-transparent: #e2e2e250;
+  --black-transparent: #00000070;
+  --blue: #090d3ae5;
+  --grey: #474747;
+  --blue-white: #030eaa;
+  --blue-sky: #1493facb;
+  --violet: #8a49df;
+  --red: #b40101;
+  --green: #168600ce;
+
+  --important: #c50000;
+  --medium: #0e00d6;
+  --low: #0d8a14;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s;
+}
+
+body {
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.5;
+  background: url(assets/image/image8.png) fixed no-repeat center;
+  background-size: cover;
+  color: var(--white);
+}
+
+.interface,
+.dashboard {
+  background-color: #00000013;
+  width: 100%;
+  padding: 1rem;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Styles pour la scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffffc0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #474747;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #131313;
+}
