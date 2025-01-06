@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import styles from "./Table.module.css";
-import Status from "./status/Status";
-import UpdateCard from "./card/update_from/UpdateCard";
-import Settings from "../settings/Settings";
+import Status from "./table/status/Status";
+import UpdateCard from "./table/card/update_from/UpdateCard";
+import Settings from "./settings/Settings";
 
 export default function Table({ contextValue }) {
   const { status, addStatus, updateCardForm, settings } = contextValue;

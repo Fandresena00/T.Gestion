@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import Navbar from "../components/navbar/Navbar";
-import Table from "../components/table/Table";
+import Navbar from "../components/interface/navbar/Navbar";
+import Table from "../components/interface/Table";
 
 export default function Interface({ contextValue }) {
   return (
