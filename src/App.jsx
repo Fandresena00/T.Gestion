@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Interface from "./components/interface/Interface";
-import Connection from "./components/connection/connection";
-import Dashboard from "./components/dashboard/Dashboard";
+import Interface from "./Pages/Interface";
+import Connection from "./Pages/connection/Connection";
+import Dashboard from "./Pages/Dashboard";
 import { useCallback, useState } from "react";
 
 export default function App() {
