@@ -173,7 +173,6 @@ export default function App() {
     tasks,
     updateCardForm,
 
-    // settings
     toggleSettings,
     updateSettings,
 
