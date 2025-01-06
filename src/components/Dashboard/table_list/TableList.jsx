@@ -1,4 +1,4 @@
-import styles from "./Controle.module.css";
+import styles from "./TableList.module.css";
 
 export default function Controle() {
   return (
