@@ -1,5 +1,5 @@
-import Controle from "../components/dashboard/controle/Controle";
-import TableList from "../components/dashboard/table_list/TableList";
+import Controle from "../components/controle/Controle";
+import TableList from "../components/table_list/TableList";
 
 export default function Dashboard() {
   return (
