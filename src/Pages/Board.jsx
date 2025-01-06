@@ -1,7 +1,7 @@
-import TableList from "../components/Dashboard/table_list/TableList";
-import Controle from "../components/Dashboard/controle/Controle";
-import Header from "../components/Dashboard/header/Header";
-import Sidebar from "../components/Dashboard/sidebar/Sidebar";
+import TableList from "../components/board/table_list/TableList";
+import Controle from "../components/board/controle/Controle";
+import Header from "../components/board/header/Header";
+import Sidebar from "../components/board/sidebar/Sidebar";
 
 export default function Board() {
   return (

@@ -1,19 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import Interface from "./Pages/Interface";
 import Connection from "./Pages/connection/Connection";
-import { useCallback, useState } from "react";
 import Board from "./Pages/Board";
+import { useCallback, useState } from "react";
 
 export default function App() {
-  // États principaux de l'application
-  const [status, setStatuses] = useState([
+  // Main states of the application
+  const [status, setStatus] = useState([
     { id: 1001, name: "To Do", order: 1 },
     { id: 1002, name: "Preview", order: 2 },
     { id: 1003, name: "Finish", order: 3 },
   ]);
   const [cards, setCards] = useState([]);
   const [tasks, setTasks] = useState([]);
-  // État pour gérer le formulaire de mise à jour
+
+  // State for managing the update form
   const [updateCardForm, setUpdateCardForm] = useState({
     isVisible: false,
     cardId: null,
@@ -24,30 +25,30 @@ export default function App() {
     priority: "medium",
   });
 
-  // ====== Gestionnaires de Status ======
-  const addStatus = useCallback((status) => {
-    setStatuses((prev) => [
-      ...prev,
+  // Callback for adding a new status
+  const addStatus = useCallback((newStatusName) => {
+    setStatus((prevStatuses) => [
+      ...prevStatuses,
       {
         id: Date.now(),
-        name: status,
-        order: prev.length,
+        name: newStatusName,
+        order: prevStatuses.length + 1,
       },
     ]);
   }, []);
 
-  // ====== Gestionnaires de Cartes ======
+  // Callback for adding a new card
   const addCard = useCallback(
     (
       title,
       statusId,
       description = "",
       priority = settings.priority,
-      startDate = new Date().toDateString(),
-      endDate = new Date().toDateString()
+      startDate = new Date().toLocaleDateString(),
+      endDate = new Date().toLocaleDateString()
     ) => {
-      setCards((prev) => [
-        ...prev,
+      setCards((prevCards) => [
+        ...prevCards,
         {
           id: Date.now(),
           title,
@@ -60,63 +61,46 @@ export default function App() {
         },
       ]);
     },
-    [settings]
+    [settings.priority]
   );
 
-  // Fonction pour déplacer une carte entre les statuts
+  // Callback for moving a card to a new status
   const moveCard = useCallback((cardId, newStatusId) => {
-    setCards((prev) =>
-      prev.map((card) =>
+    setCards((prevCards) =>
+      prevCards.map((card) =>
         card.id === cardId ? { ...card, statusId: newStatusId } : card
       )
     );
   }, []);
 
-  // Fonction pour mettre à jour une carte
-  const updateCard = useCallback(
-    (cardId, { title, description, priority, startDate, endDate }) => {
-      setCards((prev) =>
-        prev.map((card) =>
-          card.id === cardId
-            ? {
-                ...card,
-                title,
-                description,
-                priority,
-                startDate,
-                endDate,
-              }
-            : card
-        )
-      );
-      // Fermer le formulaire après la mise à jour
-      setUpdateCardForm({ isVisible: false, cardId: null });
-    },
-    []
-  );
+  // Callback for updating a card
+  const updateCard = useCallback((cardId, updatedFields) => {
+    setCards((prevCards) =>
+      prevCards.map((card) =>
+        card.id === cardId ? { ...card, ...updatedFields } : card
+      )
+    );
+    setUpdateCardForm({ isVisible: false, cardId: null });
+  }, []);
 
-  // Fonction pour supprimer une carte
-  const deleteCard = useCallback(
-    (cardId) => {
-      setCards(cards.filter((card) => card.id !== cardId));
-      // Supprime aussi les tâches associées
-      setTasks(tasks.filter((task) => task.cardId !== cardId));
-    },
-    [cards, tasks]
-  );
+  // Callback for deleting a card
+  const deleteCard = useCallback((cardId) => {
+    setCards((prevCards) => prevCards.filter((card) => card.id !== cardId));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.cardId !== cardId));
+  }, []);
 
-  // Toggle du formulaire de mise à jour
+  // Toggle the update card form visibility
   const toggleUpdateCardForm = useCallback((cardId = null) => {
     setUpdateCardForm((prev) => ({
       isVisible: !prev.isVisible,
-      cardId: cardId,
+      cardId: cardId || null,
     }));
   }, []);
 
-  // ====== Gestionnaires de Tâches ======
+  // Callback for adding a new task
   const addTask = useCallback((cardId, description) => {
-    setTasks((prev) => [
-      ...prev,
+    setTasks((prevTasks) => [
+      ...prevTasks,
       {
         id: Date.now(),
         cardId,
@@ -126,41 +110,43 @@ export default function App() {
     ]);
   }, []);
 
+  // Callback for toggling task completion
   const toggleTask = useCallback((taskId) => {
-    setTasks((prev) =>
-      prev.map((task) =>
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
         task.id === taskId ? { ...task, completed: !task.completed } : task
       )
     );
   }, []);
 
-  const deleteTask = useCallback(
-    (taskId) => {
-      setTasks(tasks.filter((task) => task.id !== taskId));
-    },
-    [tasks]
-  );
+  // Callback for deleting a task
+  const deleteTask = useCallback((taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  }, []);
 
-  // settings
+  // Toggle settings visibility
   const toggleSettings = useCallback(() => {
     setSettings((prev) => ({
+      ...prev,
       isVisible: !prev.isVisible,
     }));
   }, []);
 
-  const updateSettings = useCallback(({ isVisible = false, priority }) => {
-    setSettings({
-      isVisible,
-      priority: priority,
-    });
+  // Update settings
+  const updateSettings = useCallback((newSettings) => {
+    setSettings((prev) => ({
+      ...prev,
+      ...newSettings,
+    }));
   }, []);
 
-  // ====== Fonctions utilitaires ======
+  // Utility function to get cards by status
   const getCardsByStatus = useCallback(
     (statusId) => cards.filter((card) => card.statusId === statusId),
     [cards]
   );
 
+  // Utility function to get tasks by card
   const getTasksByCard = useCallback(
     (cardId) => tasks.filter((task) => task.cardId === cardId),
     [tasks]
@@ -176,22 +162,18 @@ export default function App() {
     toggleSettings,
     updateSettings,
 
-    // Status
     addStatus,
 
-    // Card
     addCard,
     updateCard,
     moveCard,
     deleteCard,
     toggleUpdateCardForm,
 
-    // Task
     addTask,
     toggleTask,
     deleteTask,
 
-    // Get element filter
     getCardsByStatus,
     getTasksByCard,
   };
