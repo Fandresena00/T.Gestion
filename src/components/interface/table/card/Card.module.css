@@ -95,7 +95,7 @@
   position: absolute;
   max-width: 2.5rem;
   max-height: 1.5rem;
-  margin: 0.4rem 2rem;
+  margin: 0.4rem 5rem;
   display: flex;
   top: 0;
   right: 0;
@@ -127,8 +127,12 @@
   height: 20px;
 }
 
+.archive:hover svg {
+  fill: var(--violet);
+}
+
 .update:hover svg {
-  fill: var(--blue);
+  fill: var(--blue-sky);
 }
 
 .delete:hover svg {
@@ -142,20 +146,21 @@
 
 .input_button {
   width: 40%;
-  padding: 0.4rem 1rem 0.1rem 1rem;
+  padding: 0.1rem 4rem;
   margin: 0.5rem 0;
   text-align: center;
   background: none;
   cursor: pointer;
   align-items: center;
   color: var(--white);
+  align-items: center;
   border-radius: 5px;
   border: 1px solid var(--white);
 }
 
 .input_button::placeholder {
   color: var(--white);
-  font-size: 200%;
+  font-size: 0.8rem;
 }
 .input_button:focus::placeholder {
   color: transparent;
@@ -166,4 +171,19 @@
   cursor: text;
   padding: 0.1rem 1rem 0.2rem 1rem;
   border-radius: 10px;
+}
+
+/* ======================== */
+.deadline_warning {
+  color: var(--red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 1px solid var(--red);
+  filter: drop-shadow(0 0 5px var(--red));
+}
+
+.task_count {
+  font-size: 0.9rem;
+  background: var(--black);
+  padding: 0.3rem 0;
 }

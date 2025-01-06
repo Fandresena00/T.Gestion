@@ -147,7 +147,7 @@ export default function Card({ card, contextValue }) {
                 type="text"
                 value={newTask}
                 onChange={(e) => setNewTask(e.target.value)}
-                placeholder="Add new task"
+                placeholder="Add task"
                 className={styles.input_button}
                 maxLength={50}
               />

@@ -311,19 +311,28 @@ export default function App() {
     tasks,
     updateCardForm,
 
+    // settings
     toggleSettings,
     updateSettings,
+
+    // status
     addStatus,
     addCard,
     updateCard,
     moveCard,
     deleteCard,
     toggleUpdateCardForm,
+
+    // task
     addTask,
     toggleTask,
     deleteTask,
+
+    // get Id
     getCardsByStatus,
     getTasksByCard,
+
+    // additional
     searchCards,
     filterCards,
     sortCards,
@@ -331,7 +340,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="dashboard" element={<Board contextValue={contextValue} />} />
+      <Route path="board" element={<Board contextValue={contextValue} />} />
       <Route path="connection" element={<Connection />} />
       <Route index element={<Interface contextValue={contextValue} />} />
     </Routes>
