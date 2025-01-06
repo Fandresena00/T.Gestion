@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Interface from "./Pages/Interface";
 import Connection from "./Pages/connection/Connection";
-import Dashboard from "./Pages/dashboard/Dashboard";
 import { useCallback, useState } from "react";
+import Board from "./Pages/Board";
 
 export default function App() {
   // États principaux de l'application
@@ -199,10 +199,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route
-        path="dashboard"
-        element={<Dashboard contextValue={contextValue} />}
-      />
+      <Route path="dashboard" element={<Board contextValue={contextValue} />} />
       <Route path="connection" element={<Connection />} />
       <Route index element={<Interface contextValue={contextValue} />} />
     </Routes>
