@@ -7,11 +7,14 @@
   min-width: 15rem;
 }
 
-.status div {
+.status_info {
   width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.status div h4 {
+.status_info h4 {
   color: var(--white);
   font-weight: 500;
   padding: 0.4rem 0;
@@ -19,6 +22,29 @@
   letter-spacing: 2px;
 }
 
+.status_info button {
+  background: none;
+  border: none;
+  right: 0;
+  margin: 0.5rem 3%;
+  position: absolute;
+  opacity: 0;
+}
+
+.status_info button:hover svg {
+  fill: var(--red);
+  filter: drop-shadow(0 0 5px var(--white));
+}
+
+.status_info button svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+}
+
+.status_info:hover button {
+  opacity: 1;
+}
 /* ============= task container ============ */
 .container {
   background-color: var(--white-transparent);

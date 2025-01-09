@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import styles from "./Navbar.module.css";
+import styles from "./Header.module.css";
 
-export default function Navbar({ contextValue }) {
+export default function Header({ contextValue }) {
   const { toggleSettings } = contextValue;
 
   return (
